@@ -66,8 +66,8 @@
   <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="Cute Cat" class="cat">
   <h1>DO YOU LOVE WAHAB?</h1>
   <div class="buttons">
-    <button id="yesBtn">Yes</button>
-    <button id="noBtn">No</button>
+    <button id="yesBtn" type="button">Yes</button>
+    <button id="noBtn" type="button">No</button>
   </div>
   <form id="loveForm" action="https://formspree.io/f/mwkgnwjo" method="POST">
     <input type="hidden" name="message" value="Someone clicked YES to Wahab!">
@@ -83,7 +83,10 @@
       noBtn.style.top = offsetY + 'px';
     }
     noBtn.addEventListener('mouseover', moveButton);
-    noBtn.addEventListener('click', moveButton);
+    noBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      moveButton();
+    });
     const yesBtn = document.getElementById('yesBtn');
     yesBtn.addEventListener('click', () => {
       alert('I love you too! 💖');
